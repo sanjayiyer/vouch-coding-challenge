@@ -30,11 +30,12 @@ class PrimeNumberTableGenerator
 	# Here we just try and see if it is divisible by other primes.
 	# this could be a real bottleneck if the number of primes we intend to generate is large.
 	def isPrime?(number)
+		return true if number == 1
 		@primes_array.each_with_index do |prev_primes,index|
 			# ignore first prime , i.e., 1
 			next if index == 0
 			# divisible by any other prime return false
-			return false if number%prev_primes == 0
+			return false if number%prev_primes == 0 && prev_primes != number
 		end
 		# not divisible by any other primes generated before.
 		true
@@ -71,6 +72,8 @@ n = 10
 # 
 prime_number_gen_obj = PrimeNumberTableGenerator.new(n)
 prime_number_gen_obj.generate_n_primes
+prime_number_gen_obj.isPrime?(2)
+prime_number_gen_obj.isPrime?(4)
 # puts
 # puts "Number of Prime numbers to generate : #{prime_number_gen_obj.number_of_primes}"
 # puts
