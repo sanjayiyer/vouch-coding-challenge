@@ -6,6 +6,8 @@ class PrimeNumberTableGenerator
 
 	# initializes instance variables for the object
 	def initialize(n)
+	    raise ArgumentError.new("Please provide an Integer value for no of primes") if !n.is_a?(Integer)
+	    raise ArgumentError.new("Please provide an integer greater than 0") if n <= 0
 		@number_of_primes = n
 		@primes_array = Array.new		
 		@primes_table = Array.new
@@ -26,7 +28,7 @@ class PrimeNumberTableGenerator
 	# checks if a number is prime
 	# Number is considered prime when it is divisible by itself and 1 BUT no other number.
 	# Here we just try and see if it is divisible by other primes.
-	# this could be a real bottleneck if the number of primes we intend  to generate is large.
+	# this could be a real bottleneck if the number of primes we intend to generate is large.
 	def isPrime?(number)
 		@primes_array.each_with_index do |prev_primes,index|
 			# ignore first prime , i.e., 1
