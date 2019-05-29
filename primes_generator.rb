@@ -68,13 +68,12 @@ n = 10
 #end
 # 
 prime_number_gen_obj = PrimeNumberTableGenerator.new(n)
-puts
-puts "Number of Prime numbers to generate : #{prime_number_gen_obj.number_of_primes}"
-puts
-print "Here are first #{prime_number_gen_obj.number_of_primes} Prime Numbers :"
 prime_number_gen_obj.generate_n_primes
-print prime_number_gen_obj.primes_array
-puts
+# puts
+# puts "Number of Prime numbers to generate : #{prime_number_gen_obj.number_of_primes}"
+# puts
+# print "Here are first #{prime_number_gen_obj.number_of_primes} Prime Numbers :"
+# print prime_number_gen_obj.primes_array
 puts
 puts "Generating the Primes Table:"
 prime_number_gen_obj.generate_table_for_n_primes
